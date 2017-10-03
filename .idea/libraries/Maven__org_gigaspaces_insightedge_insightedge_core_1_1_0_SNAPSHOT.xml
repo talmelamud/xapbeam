@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="Maven: org.gigaspaces.insightedge:insightedge-core:1.1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/gigaspaces/insightedge/insightedge-core/1.1.0-SNAPSHOT/insightedge-core-1.1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/gigaspaces/insightedge/insightedge-core/1.1.0-SNAPSHOT/insightedge-core-1.1.0-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/gigaspaces/insightedge/insightedge-core/1.1.0-SNAPSHOT/insightedge-core-1.1.0-SNAPSHOT-sources.jar!/" />
+      <root url="file://$PROJECT_DIR$/../insightedge/insightedge-core" />
+      <root url="file://$PROJECT_DIR$/../insightedge/insightedge-core/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../insightedge/insightedge-core/src/main/scala" />
+      <root url="file://$PROJECT_DIR$/../insightedge/insightedge-core/src/test/java" />
+    </SOURCES>
+  </library>
+</component>

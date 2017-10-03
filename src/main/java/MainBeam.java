@@ -18,6 +18,8 @@ import org.apache.spark.sql.types.StructType;
 import org.insightedge.examples.basic.Product;
 import org.openspaces.core.space.SpaceProxyConfigurer;
 
+import java.io.File;
+
 
 public class MainBeam {
 
@@ -64,6 +66,15 @@ public class MainBeam {
 
         ///**************************
         JavaSparkContext jsc = new JavaSparkContext(conf);
+        jsc.addJar("/home/talm/Downloads/gigaspaces-insightedge-1.1.0-SNAPSHOT-premium/datagrid/lib/required/xap-datagrid.jar");
+        jsc.addJar("/home/talm/Downloads/gigaspaces-insightedge-1.1.0-SNAPSHOT-premium/lib/insightedge-core-1.1.0-SNAPSHOT.jar");
+        jsc.addJar("/home/talm/Downloads/gigaspaces-insightedge-1.1.0-SNAPSHOT-premium/datagrid/lib/required/xap-openspaces.jar");
+        File requiredLib = new File("/home/talm/Downloads/gigaspaces-insightedge-1.1.0-SNAPSHOT-premium/datagrid/lib/required");
+        for ( File f : requiredLib.listFiles()){
+            jsc.addJar(f.getPath());
+        }
+
+
 
         SparkContextOptions optionsSpark = PipelineOptionsFactory.as(SparkContextOptions.class);
         optionsSpark.setRunner(SparkRunner.class);

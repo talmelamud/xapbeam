@@ -7,11 +7,22 @@
     <groupId>com.poc.beam</groupId>
     <artifactId>xap-beam</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+
+    <properties>
+        <xap.version>12.1.1</xap.version>
+        <scala.major>2.10</scala.major>
+        <scala.version>2.10.4</scala.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -19,16 +30,6 @@
             </plugin>
         </plugins>
     </build>
-
-
-    <properties>
-        <xap.version>12.1.1</xap.version>
-        <spark.version>2.1.1</spark.version>
-        <scala.version>2.11.8</scala.version>
-        <scalatest.version>2.2.4</scalatest.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -40,35 +41,22 @@
 
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-core_2.11</artifactId>
+            <artifactId>spark-core_2.10</artifactId>
             <version>1.6.1</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-sql_2.11 -->
         <dependency>
             <groupId>org.apache.spark</groupId>
-            <artifactId>spark-sql_2.11</artifactId>
+            <artifactId>spark-sql_2.10</artifactId>
             <version>1.6.1</version>
-            <scope>provided</scope>
         </dependency>
-
-
-
-
-
-        <!--<dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-streaming-kafka_2.10</artifactId>
-            <version>1.6.3</version>
-        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming_2.10 -->
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-streaming_2.10</artifactId>
             <version>1.6.1</version>
-<!--            <scope>provided</scope>-->
-
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -90,12 +78,10 @@
 
 
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.gigaspaces</groupId>
             <artifactId>xap-openspaces</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <systemPath>/home/talm/Downloads/gigaspaces-insightedge-12.2.0-ga-b18000/lib/required/xap-openspaces.jar</systemPath>
-            <scope>system</scope>
+            <version>12.0.0</version>
         </dependency>
 
         <dependency>
@@ -112,11 +98,6 @@
         </dependency>
 
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>4.1.1.RELEASE</version>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -134,58 +115,98 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
             <version>4.1.1.RELEASE</version>
+        </dependency>-->
+
+
+        <dependency>
+            <groupId>iescala</groupId>
+            <artifactId>iescal</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <systemPath>/home/talm/IdeaProjects/iescal/target/iescal-1.0-SNAPSHOT.jar</systemPath>
+            <scope>system</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.gigaspaces.insightedge</groupId>
+            <artifactId>insightedge-core</artifactId>
+            <version>1.1.0-SNAPSHOT</version>
+
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.spark</groupId>
+                    <artifactId>spark-core_2.11</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.spark</groupId>
+                    <artifactId>spark-sql_2.11</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.spark</groupId>
+                    <artifactId>spark-streaming_2.11</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.spark</groupId>
+                    <artifactId>spark-mllib_2.11</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.scala-lang</groupId>
+                    <artifactId>scala-library</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.scala-lang</groupId>
+                    <artifactId>scala-reflect</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.scala-lang</groupId>
+                    <artifactId>scala-compiler</artifactId>
+                </exclusion>
+
+                <exclusion>
+                    <groupId>org.gigaspaces</groupId>
+                    <artifactId>xap-datagrid</artifactId>
+                </exclusion>
+
+            </exclusions>
+
+
+
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-reflect</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-compiler</artifactId>
+            <version>${scala.version}</version>
         </dependency>
 
 
 
-
-        <dependency>
+       <dependency>
             <groupId>org.gigaspaces</groupId>
             <artifactId>xap-datagrid</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <systemPath>/home/talm/Downloads/gigaspaces-insightedge-12.2.0-ga-b18000/lib/required/xap-datagrid.jar</systemPath>
-            <scope>system</scope>
+            <version>12.0.0</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.gigaspaces</groupId>
             <artifactId>xap-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <systemPath>/home/talm/Downloads/gigaspaces-insightedge-12.2.0-ga-b18000/lib/required/xap-common.jar</systemPath>
-            <scope>system</scope>
+            <version>12.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>org.gigaspaces</groupId>
             <artifactId>xap-asm</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <systemPath>/home/talm/Downloads/gigaspaces-insightedge-12.2.0-ga-b18000/lib/required/xap-asm.jar</systemPath>
-            <scope>system</scope>
-        </dependency>
-
-
-
-
-
-        <!--<dependency>
+            <version>12.0.0</version>
+        </dependency>-->
+        <dependency>
             <groupId>org.gigaspaces.insightedge</groupId>
             <artifactId>insightedge-scala</artifactId>
             <version>1.1.0-SNAPSHOT</version>
-            <systemPath>/home/talm/Downloads/gigaspaces-insightedge-12.2.0-ga-b18000/insightedge/lib/insightedge-scala-1.1.0-SNAPSHOT.jar</systemPath>
-
-            <scope>system</scope>
-        </dependency>-->
-
-
-
-
-        <!--
-                <dependency>
-                    <groupId>org.apache.spark</groupId>
-                    <artifactId>spark-streaming-kafka-0-8_2.11</artifactId>
-                    <version>1.6.2</version>
-                </dependency>-->
-
+        </dependency>
     </dependencies>
 
 </project>
