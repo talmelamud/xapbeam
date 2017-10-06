@@ -84,14 +84,14 @@ public class MainBeam {
         optionsSpark.setAppName("InsightEdge Python Example");
 
         SQLContext sqlContext = new SQLContext(jsc);
-      //  sqlContext.getOrCreate(JavaSparkContext.toSparkContext(jsc));
+       sqlContext.getOrCreate(JavaSparkContext.toSparkContext(jsc));
 
 
         JavaRDD<String> javaRdd = jsc.textFile("/home/talm/Downloads/tmp/README.md");
         DataFrame df = sqlContext.createDataFrame(javaRdd, StructType.class);
 
         DataFrameWriter a = df.write().format("org.apache.spark.sql.insightedge").mode("overwrite");
-        a.save("insightedge-space");
+        a.save("tal");
 
 
 
